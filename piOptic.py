@@ -38,7 +38,6 @@ disp.image(image)
 # Open video capture
 cap = cv2.VideoCapture(0)  # /dev/video0
 
-stop = True
 while cap.isOpened():
     ret, frame = cap.read()
     if not ret:
@@ -68,9 +67,6 @@ while cap.isOpened():
 	
     # Send frame to OLED
     disp.image(frame_pil)
-    stop = input()
-    
-    if stop == "s": break
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
